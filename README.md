@@ -51,3 +51,7 @@ Follow the below command:
 You can add/remove the opencv shared libraries based on functions used in the cpp code. 
 
 Do Note: The code is specific to the model. If converting a new model with different input/output dtype, please edit the demo code accordingly.
+
+## Genio TAO Documentation
+
+Genio TAO Documentation can be accessed [here](https://mediatek.gitlab.io/genio/doc/tao/index.html) 
