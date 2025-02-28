@@ -40,3 +40,14 @@ Execute as:
 Consists of the TFLite modle and CPP doe for NPU execution. Execute as:
 
 `./peoplesemsegnet_demo <model_file> <input_video> <output_video>`
+
+## Compilation on Genio Target
+
+The demos can be compiled on the Genio Target itself with necessary libraries. Add `IMAGE_INSTALL:append = "abseil-cpp"` to local.conf at time of image build and ensure `g++` is installed.
+Follow the below command:
+
+`g++ <script.cpp> -o <executable_name> -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_videoio -lopencv_dnn -lopencv_flann -ltensorflowlite -ltensorflowlite_c -ldl -lflatbuffers -pthread -ldelegate_loader -ltflite_settings_json_parser -labsl_base -I/usr/include/opencv4/`
+
+You can add/remove the opencv shared libraries based on functions used in the cpp code. 
+
+Do Note: The code is specific to the model. If converting a new model with different input/output dtype, please edit the demo code accordingly.
