@@ -35,3 +35,8 @@ Execute as:
 
 `python3 action_recognition.py --model <model_name> --video <path_to_video_file>`
 
+### 6. People Semantic Segmentation
+
+Consists of the TFLite modle and CPP doe for NPU execution. Execute as:
+
+`./peoplesemsegnet_demo <model_file> <input_video> <output_video>`
