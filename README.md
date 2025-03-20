@@ -20,6 +20,8 @@ Consists of the TFLite model, and CPP code for NPU execution. Execute as below:
 
 `./bodyposenet <model_name> <cam_id>`
 
+**Note: The demo works well for single person in the frame. The update for more than 1 people in frame to follow soon**
+
 ### 4. Retail Object Recognition
 
 Consists of the CSV logistic regression and CPP code for NPU execution. Logistic regression trained on 
