@@ -45,14 +45,21 @@ Consists of the TFLite modle and CPP doe for NPU execution. Execute as:
 
 ## Compilation on Genio Target
 
-The demos can be compiled on the Genio Target itself with necessary libraries. Add `IMAGE_INSTALL:append = "abseil-cpp"` to local.conf at time of image build and ensure `g++` is installed.
-Follow the below command:
+The demos can be compiled on the Genio Target itself with necessary libraries. To your image local.conf, please add the below snippet to ensure compatible libraries are installed in your rity IMAGE_INSTALL:
+```
+IMAGE_INSTALL:append = " gcc g++ package-group-core-buildessential "
+IMAGE_INSTALL:append = " abseil-cpp abseil-cpp-dev "
+IMAGE_INSTALL:append = " tensorflowlite-prebuilt-dev tensorflowlite-prebuilt-staticdev opencv-dev flatbuffers-dev "
+```
 
-`g++ <script.cpp> -o <executable_name> -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_videoio -lopencv_dnn -lopencv_flann -ltensorflowlite -ltensorflowlite_c -ldl -lflatbuffers -pthread -ldelegate_loader -ltflite_settings_json_parser -labsl_base -I/usr/include/opencv4/`
 
+Follow the below command to compile:
+```
+g++ <script.cpp> -o <executable_name> -lopencv_core -lopencv_imgproc -lopencv_highgui -lopencv_videoio -lopencv_dnn -lopencv_flann -ltensorflowlite -ltensorflowlite_c -ldl -lflatbuffers -pthread -ldelegate_loader -ltflite_settings_json_parser -labsl_base -I/usr/include/opencv4/
+```
 You can add/remove the opencv shared libraries based on functions used in the cpp code. 
 
-Do Note: The code is specific to the model. If converting a new model with different input/output dtype, please edit the demo code accordingly.
+> **Do Note: The code is specific to the model. If converting a new model with different input/output dtype, please edit the demo code accordingly.**
 
 ## Genio TAO Documentation
 
