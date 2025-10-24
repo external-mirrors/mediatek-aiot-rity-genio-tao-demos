@@ -4,9 +4,13 @@ This repository consists of demo C++ example code using converted TAO models men
 
 ### 1. People Detection
 
-Consists of the TFLite model, label file and CPP code for NPU execution. Execute as below:
+LiteRT: Consists of the TFLite model, label file and CPP code for NPU execution. Execute as below:
 
 `./people_detection <model_name> <label_file_name> <cam_id>`
+
+ONNXRuntime: Consists of ONNX model, label file and CPP code for ORT NPU execution. Execute as below:
+`./people_detection <model.onnx> <label_file> <input_video> <output_video> neuron 1`
+
 
 ### 2. License Plate Detection
 
@@ -47,7 +51,7 @@ Consists of the TFLite modle and CPP doe for NPU execution. Execute as:
 
 The demos can be compiled on the Genio Target itself with necessary libraries. To your image local.conf, please add the below snippet to ensure compatible libraries are installed in your rity IMAGE_INSTALL:
 ```
-IMAGE_INSTALL:append = " gcc g++ package-group-core-buildessential "
+IMAGE_INSTALL:append = " gcc g++ packagegroup-core-buildessential "
 IMAGE_INSTALL:append = " abseil-cpp abseil-cpp-dev "
 IMAGE_INSTALL:append = " tensorflowlite-prebuilt-dev tensorflowlite-prebuilt-staticdev opencv-dev flatbuffers-dev "
 ```
